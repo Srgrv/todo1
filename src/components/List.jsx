@@ -8,15 +8,15 @@ const List = () => {
   const list = useSelector((state) => state.about.list);
 
   return (
-    <ul>
+    <div>
       {list.map((todo) => {
         return (
-          <li key={todo.id}>
+          <div key={todo.id}>
             <Todo id={todo.id} completed={todo.completed} title={todo.title} />
-          </li>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 };
 

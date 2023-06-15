@@ -2,6 +2,6 @@ input:checked + span {
   text-decoration: line-through;
 }
 
-li {
+/* li {
   list-style: none;
-}
+} */

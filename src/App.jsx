@@ -14,6 +14,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import PostsPage from "./pages/PostsPage";
 import LoginPage from "./pages/LoginPage";
+import PostPage from "./pages/PostPage";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="posts" element={<PostsPage />} />
+          <Route path="posts/:id" element={<PostPage />} />
         </Route>
         <Route path="login" element={<LoginPage />} />
       </Routes>
