@@ -9,13 +9,15 @@ const store = configureStore({
     about: aboutSlice,
     login: loginSlice,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: (
+    getDefaultMiddleware // нужно добавлять для того чтобы в action передавать значения помимо строк, а также к примеру функции
+  ) =>
     getDefaultMiddleware({
       serializableCheck: {
         // Ignore these action types
         ignoredActions: ["your/action/type"],
         // Ignore these field paths in all actions
-        ignoredActionPaths: ["meta.arg", "payload.cb"],
+        ignoredActionPaths: ["payload.hello", "payload.cb"],
         // Ignore these paths in the state
         ignoredPaths: ["items.dates"],
       },

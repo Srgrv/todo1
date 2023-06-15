@@ -3,17 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const loginSlice = createSlice({
   name: "login",
   initialState: {
-    email: null,
+    email: "d",
     password: null,
     rememberMe: true,
   },
   reducers: {
-    addTask(state, action) {
+    login(state, action) {
       state.email = action.payload.login;
       action.payload.cb();
     },
   },
 });
 
-export const { addTask } = loginSlice.actions;
+export const { login } = loginSlice.actions;
 export default loginSlice.reducer;

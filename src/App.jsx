@@ -1,6 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+//styles
+import "./styles/App.css";
+
 //components
 import PrivateRoute from "./components/PrivateRoute";
 import Headers from "./components/Headers";

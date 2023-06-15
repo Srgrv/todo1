@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 //reducers
-import { addTask } from "../store/slices/loginSlice";
+import { login } from "../store/slices/loginSlice";
 
 const LoginPage = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -16,7 +16,7 @@ const LoginPage = () => {
 
   const onSubmit = (data) => {
     dispatch(
-      addTask({
+      login({
         login: data.login,
         cb: () => navigate(fromPage, { replace: true }),
       })

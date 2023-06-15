@@ -19,9 +19,23 @@ const aboutSlice = createSlice({
     ],
   },
   reducers: {
-    addTask(state, action) {},
+    addTask(state, action) {
+      state.list.push({
+        id: new Date().toISOString(),
+        userId: 1,
+        title: action.payload,
+        completed: false,
+      });
+    },
+    deleteTask(state, action) {
+      state.list = state.list.filter((todo) => todo.id !== action.payload.id);
+    },
+    toggleTask(state, action) {
+      const change = state.list.find((todo) => todo.id === action.payload.id);
+      change.completed = !change.completed;
+    },
   },
 });
 
-export const { addTask } = aboutSlice.actions;
+export const { addTask, deleteTask, toggleTask } = aboutSlice.actions;
 export default aboutSlice.reducer;
