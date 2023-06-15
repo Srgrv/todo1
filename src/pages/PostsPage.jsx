@@ -1,11 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 
 //extra-reducers
 import { getPostsAsync } from "../store/slices/postsSlice";
-import { NavLink } from "react-router-dom";
 
 const PostsPage = () => {
   const dispatch = useDispatch();
@@ -17,15 +16,15 @@ const PostsPage = () => {
   const posts = useSelector((state) => state.posts.posts);
 
   return (
-    <ul>
+    <div>
       {posts.map((post) => {
         return (
           <li key={post.id}>
-            <NavLink to={`${post.id}`}>{post.title}</NavLink>
+            <NavLink to={`/posts/${post.id}`}>{post.title}</NavLink>
           </li>
         );
       })}
-    </ul>
+    </div>
   );
 };
 

@@ -1,17 +1,14 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 //extra-reducers
 import { getPostAsync } from "../store/slices/postSlice";
 
 const PostPage = () => {
-  const dispatch = useDispatch();
-
   const { id } = useParams();
-  console.log(id);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getPostAsync(id));
@@ -22,9 +19,10 @@ const PostPage = () => {
   return (
     <div>
       {post && (
-        <div>
+        <>
           <h1>{post.title}</h1>
-        </div>
+          <p>{post.body}</p>
+        </>
       )}
     </div>
   );
